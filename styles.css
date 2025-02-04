@@ -84,6 +84,35 @@ nav ul li a:hover {
     text-decoration: underline;
 }
 
+/* Style the table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+table, th, td {
+    border: 1px solid #ddd; /* Light gray border */
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #8b4513; /* SaddleBrown color */
+    color: white; /* White text */
+}
+
+td {
+    background-color: #f9f9f9; /* Light gray background */
+}
+
+
+
+
+
 /* Style the contact info */
 .contact-info {
     text-align: center;
