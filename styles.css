@@ -10,7 +10,7 @@ body {
     font-family: 'Roboto', sans-serif;
     background-color: #F2ECE4; /* Beige background */
     color: #4b2e2e; /* Dark brown text */
-    padding: 150px 20px 150px 20px; /* Add padding to the top and bottom to avoid overlap with header and footer */
+    padding: 150px 20px 100px 20px; /* Add padding to the top and bottom to avoid overlap with header and footer */
 }
 
 /* Style the banner */
