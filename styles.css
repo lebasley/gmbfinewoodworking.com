@@ -10,7 +10,7 @@ body {
     font-family: 'Roboto', sans-serif;
     background-color: #F2ECE4; /* Beige background */
     color: #4b2e2e; /* Dark brown text */
-    padding: 150px 20px 100px 20px; /* Add padding to the top and bottom to avoid overlap with header and footer */
+    padding: 100px 20px 100px 20px; /* Add padding to the top and bottom to avoid overlap with header and footer */
 }
 
 /* Style the banner */
@@ -89,6 +89,8 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
+    border-radius: 10px; /* Add rounded corners to the table */
+    overflow: hidden; /* Ensure the rounded corners are visible */
 }
 
 table, th, td {
@@ -119,9 +121,15 @@ td {
     margin: 20px 0;
 }
 
+.contact-info p {
+    font-size: 1.5em; /* Increase the font size */
+    margin: 10px 0; /* Add some margin for spacing */
+}
+
 .contact-info a {
     color: #4b2e2e; /* Dark brown text */
     text-decoration: none;
+    font-size: 1em; /* Increase the font size of the links */
 }
 
 .contact-info a:hover {
@@ -132,42 +140,59 @@ td {
 .contact-form {
     max-width: 600px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 30px;
     background-color: #ffffff; /* White background */
     border: 1px solid #ccc; /* Light gray border */
-    border-radius: 5px;
+    border-radius: 10px; /* More rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    transition: box-shadow 0.3s ease; /* Smooth transition for shadow */
+}
+
+.contact-form:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
 }
 
 .contact-form label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 10px; /* Increase margin for better spacing */
     font-weight: bold;
+    color: #4b2e2e; /* Dark brown text */
 }
 
 .contact-form input,
 .contact-form textarea {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
+    padding: 15px; /* Increase padding for better spacing */
+    margin-bottom: 20px; /* Increase margin for better spacing */
     border: 1px solid #ccc; /* Light gray border */
     border-radius: 5px;
+    font-size: 16px; /* Increase font size */
+    transition: border-color 0.3s ease; /* Smooth transition for border color */
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #8b4513; /* SaddleBrown color on focus */
+    outline: none; /* Remove default outline */
 }
 
 .contact-form button {
     display: block;
     width: 100%;
-    padding: 10px;
+    padding: 15px; /* Increase padding for better spacing */
     background-color: #8b4513; /* SaddleBrown color */
     color: #ffffff; /* White text */
     border: none;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 18px; /* Increase font size */
     cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
 }
 
 .contact-form button:hover {
     background-color: #a0522d; /* Darker brown color */
 }
+
 
 /* Style the gallery grid */
 .gallery-grid {
