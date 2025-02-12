@@ -209,6 +209,16 @@ td {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Style the video */
+.full-width-video {
+    width: 100%;
+    max-width: 300px; /* Set the maximum width to a smaller size */
+    height: auto;
+    margin: 20px 500px; /* Center the video and add a larger margin at the top and bottom */
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 /* Style the footer */
 footer {
     background-color: #8b4513; /* SaddleBrown color */
