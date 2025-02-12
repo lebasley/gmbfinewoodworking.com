@@ -202,19 +202,11 @@ td {
     margin-top: 20px;
 }
 
-/* Style the images */
 .gallery-grid img {
-    width: 500px; /* Set a fixed width */
-    height: 500px; /* Set a fixed height */
-    object-fit: cover; /* Ensure the image covers the area without distortion */
-    margin: 10px; /* Add some margin around the images */
-}
-
-/* Style the full-width video */
-.full-width-video {
-    width: 90%; /* Set the width to 90% */
-    height: auto; /* Maintain aspect ratio */
-    margin: 20px 80px; /* Add some margin around the video */
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Style the footer */
