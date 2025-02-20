@@ -146,6 +146,39 @@ td {
 
 
 
+/* Show the nav menu when the 'active' class is added */
+nav ul.active {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Style the nav toggle button */
+.nav-toggle {
+    display: none;
+    background-color: #8b4513;
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* Show the nav toggle button on mobile */
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: block;
+    }
+
+    nav ul {
+        display: none;
+    }
+
+    nav ul.active {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+
 /* Style the contact form */
 .contact-form {
     max-width: 600px;
