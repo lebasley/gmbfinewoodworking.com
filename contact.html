@@ -26,15 +26,23 @@
         <p>Email: <a href="mailto:gmbasley@gmail.com">gmbasley@gmail.com</a></p>
     </div>
     <div class="contact-form">
+        <?php if (isset($_GET['success'])): ?>
+            <p class="success-message">Thank you for your submission!</p>
+        <?php elseif (isset($_GET['error'])): ?>
+            <p class="error-message">There was an error with your submission. Please try again.</p>
+        <?php endif; ?>
         <form action="submit_form.php" method="post">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
+            <div class="error-message" id="name-error"></div>
             
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
+            <div class="error-message" id="email-error"></div>
             
             <label for="message">Message:</label>
             <textarea id="message" name="message" rows="4" required></textarea>
+            <div class="error-message" id="message-error"></div>
             
             <button type="submit">Submit</button>
         </form>
@@ -42,6 +50,21 @@
     <footer>
         <p>&copy; 2025 G Michael Basley Fine Woodworking LLC. All rights reserved.</p>
     </footer>
+
+    <!-- Custom Alert Modal -->
+    <div id="custom-alert" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <p>Thanks for your submission!</p>
+        </div>
+    </div>
+
+    <!-- Dynamic Content Section -->
+    <div>
+        <button id="dynamic-content-button">Update Content</button>
+        <div id="dynamic-content-container"></div>
+    </div>
+
     <script src="scripts.js"></script>
 </body>
 </html>
