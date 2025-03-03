@@ -103,3 +103,23 @@ document.addEventListener('DOMContentLoaded', function() {
         dynamicContentContainer.innerHTML = `<p>This is dynamically updated content! Button clicked at: ${currentTime}</p>`;
     });
 });
+
+// Live Search Feature
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('search-input');
+    const searchResults = document.getElementById('search-results');
+    const services = ['Cabinets', 'Kitchen', 'Built Ins', 'Door Trim'];
+
+    searchInput.addEventListener('input', function() {
+        const query = searchInput.value.toLowerCase();
+        searchResults.innerHTML = '';
+
+        services.forEach(function(service) {
+            if (service.toLowerCase().includes(query)) {
+                const li = document.createElement('li');
+                li.textContent = service;
+                searchResults.appendChild(li);
+            }
+        });
+    });
+});
