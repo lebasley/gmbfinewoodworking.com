@@ -93,6 +93,31 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// Lightbox for Image Gallery
+document.addEventListener('DOMContentLoaded', function() {
+    const images = document.querySelectorAll('.gallery-grid img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeLightbox = document.querySelector('.close-lightbox');
+
+    images.forEach(image => {
+        image.addEventListener('click', function() {
+            lightbox.style.display = 'block';
+            lightboxImg.src = this.src;
+        });
+    });
+
+    closeLightbox.addEventListener('click', function() {
+        lightbox.style.display = 'none';
+    });
+
+    window.addEventListener('click', function(event) {
+        if (event.target == lightbox) {
+            lightbox.style.display = 'none';
+        }
+    });
+});
+
 // Dynamic Content Update Example
 document.addEventListener('DOMContentLoaded', function() {
     const dynamicContentButton = document.getElementById('dynamic-content-button');
@@ -104,22 +129,74 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Live Search Feature
-document.addEventListener('DOMContentLoaded', function() {
-    const searchInput = document.getElementById('search-input');
-    const searchResults = document.getElementById('search-results');
-    const services = ['Cabinets', 'Kitchen', 'Built Ins', 'Door Trim'];
+// Function to add fade-in animation to gallery images
+function fadeInImages() {
+    const images = document.querySelectorAll('.gallery-grid img');
+    images.forEach((img, index) => {
+        img.style.opacity = 0;
+        img.style.transition = `opacity 1s ease ${index * 0.2}s`;
+        img.style.opacity = 1;
+    });
+}
 
-    searchInput.addEventListener('input', function() {
-        const query = searchInput.value.toLowerCase();
-        searchResults.innerHTML = '';
-
-        services.forEach(function(service) {
-            if (service.toLowerCase().includes(query)) {
-                const li = document.createElement('li');
-                li.textContent = service;
-                searchResults.appendChild(li);
-            }
+// Function to add hover effect to navigation menu items
+function addNavHoverEffect() {
+    const navItems = document.querySelectorAll('nav ul li a');
+    navItems.forEach(item => {
+        item.addEventListener('mouseover', () => {
+            item.style.color = '#a0522d'; // Change color on hover
+        });
+        item.addEventListener('mouseout', () => {
+            item.style.color = '#ffffff'; // Revert color on mouse out
         });
     });
+}
+
+// Call the functions when the DOM content is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    fadeInImages();
+    addNavHoverEffect();
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Fetch and display the latest news
+    fetchLatestNews();
+
+    // Function to fetch the latest news from NewsAPI
+    function fetchLatestNews() {
+        const apiKey = 'f13916769f2448ac9d797a9f165521300'; // Replace with your NewsAPI key
+        const url = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=f13916769f2448ac9d797a9f16552130`;
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                const newsContainer = document.getElementById('news-container');
+                newsContainer.innerHTML = ''; // Clear any existing content
+
+                data.articles.forEach(article => {
+                    const articleElement = document.createElement('div');
+                    articleElement.classList.add('news-article');
+
+                    const titleElement = document.createElement('h3');
+                    titleElement.textContent = article.title;
+
+                    const descriptionElement = document.createElement('p');
+                    descriptionElement.textContent = article.description;
+
+                    const linkElement = document.createElement('a');
+                    linkElement.href = article.url;
+                    linkElement.textContent = 'Read more';
+                    linkElement.target = '_blank';
+
+                    articleElement.appendChild(titleElement);
+                    articleElement.appendChild(descriptionElement);
+                    articleElement.appendChild(linkElement);
+
+                    newsContainer.appendChild(articleElement);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching news:', error);
+            });
+    }
 });
